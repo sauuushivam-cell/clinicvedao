@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Veda | Ayurveda × Modern Science</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0faf5;
+      color: #174b3b;
+      line-height: 1.6;
+    }
+    
+    /* Navigation Bar */
+    nav {
+      background: #087f5b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav .logo {
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+    }
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #a8e6cf;
+    }
+
+    /* Header */
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.3rem;
+      margin-bottom: 6px;
+    }
+    header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+      background: white;
+      margin: 20px auto;
+      max-width: 950px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .hero h2 {
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 550px;
+      margin: 0 auto 20px;
+      color: #3a5a4a;
+    }
+    .btn {
+      display: inline-block;
+      background: #087f5b;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #066a4a;
+    }
+
+    /* Search Bar Feature */
+    .search-box {
+      max-width: 450px;
+      margin: 20px auto 0;
+      display: flex;
+      gap: 8px;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+    .search-box button {
+      background: #174b3b;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Section & Cards */
+    .section {
+      padding: 35px 20px;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.7rem;
+    }
+
+    /* Product Pricing Cards Section */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      text-align: center;
+      border: 1px solid #e0f2ec;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .product-card .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #e63946;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+    .product-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      color: #087f5b;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    .product-card .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #174b3b;
+      margin: 10px 0;
+    }
+    .product-card .price .mrp {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 1rem;
+      margin-right: 6px;
+    }
+    .product-card p {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    .order-btn {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .order-btn:hover {
+      background: #20ba5a;
+    }
+
+    /* CEO Profile Section */
+    .ceo-container {
+      max-width: 380px;
+      margin: 20px auto;
+    }
+    .ceo-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #e0f2ec;
+    }
+    .ceo-card img {
+      width: 100%;
+      max-width: 280px;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .ceo-card h3 {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      color: #087f5b;
+    }
+    .ceo-card p {
+      color: #3a5a4a;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .founder-insta {
+      display: inline-block;
+      margin-top: 8px;
+      color: #e1306c;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .founder-insta:hover {
+      text-decoration: underline;
+    }
+
+    /* Interactive Explorer Box */
+    .explorer {
+      background: white;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 950px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .tab-btns {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .tab-btns button {
+      padding: 8px 16px;
+      margin: 4px;
+      background: #e0f2ec;
+      border: 1px solid #087f5b;
+      color: #174b3b;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tab-btns button.active {
+      background: #087f5b;
+      color: white;
+    }
+    .herb-detail {
+      background: #f9fbf9;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #087f5b;
+    }
+
+    /* Links Hub */
+    .linktree-box {
+      background: white;
+      max-width: 600px;
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 1px solid #e0f2ec;
+    }
+    .linktree-box h3 {
+      font-size: 1.4rem;
+      color: #087f5b;
+      margin-bottom: 5px;
+    }
+    .linktree-box p {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0faf5;
+      border: 1px solid #d1fae5;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      text-decoration: none;
+      color: #174b3b;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .link-item:hover {
+      background: #087f5b;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .link-item span {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      font-weight: normal;
+    }
+
+    /* About & Contact */
+    .box {
+      background: white;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 950px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .ig-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .yt-btn { background: #ff0000; }
+    .wa-btn { background: #25d366; }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    footer {
+      background: #174b3b;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+    }
+    footer a { color: #a8e6cf; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+  <div class="logo">🌿 Clinical Veda</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products & Rates</a></li>
+    <li><a href="#ceo">Leadership</a></li>
+    <li><a href="#links">Official Links</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <h1>🌿 Clinical Veda</h1>
+  <p>Ayurveda × Modern Science | @clinicalveda_</p>
+</header>
+
+<section class="hero">
+  <h2>Welcome to Clinical Veda</h2>
+  <p>Clinical knowledge, Ayurveda aur modern science ko saath laake easy-to-understand health education aur authentic formulations.</p>
+  <a href="#products" class="btn">View Products & Rates</a>
+  
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search topics (e.g., Ashwagandha, Triphala)...">
+    <button onclick="doSearch()">Search</button>
+  </div>
+</section>
+
+<!-- Product Catalog & Pricing Section -->
+<section class="section" id="products">
+  <h2>Our Authentic Products & Pricing</h2>
+  <p style="text-align: center; color: #555; margin-bottom: 20px;">Pure Ayurvedic formulations combined with modern clinical standards.</p>
+  
+  <div class="product-grid">
+    <!-- Ashwagandha Card with Image -->
+    <div class="product-card">
+      <span class="badge">20% OFF</span>
+      <div>
+        <img src="ashwagandha.jpg" alt="Ashwagandha Churna - Clinical Veda" class="product-img">
+        <h3>🌿 Ashwagandha Churna</h3>
+        <div class="price">
+          <span class="mrp">₹199</span>₹179 
+          <span style="font-size:0.8rem; font-weight:normal; color:#666;">(75g)</span>
+        </div>
+        <p>100% Shuddh Jad ka powder. Stress relief, immunity boost, stamina aur hormone balance ke liye.</p>
+      </div>
+      <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20to%20order%20Ashwagandha%20Churna%20(₹179)" target="_blank" class="order-btn">💬 Order on WhatsApp</a>
+    </div>
+
+    <!-- Triphala Card with Image -->
+    <div class="product-card">
+      <span class="badge">20% OFF</span>
+      <div>
+        <img src="triphala.jpg" alt="Triphala Churna - Clinical Veda" class="product-img">
+        <h3>🍃 Triphala Churna</h3>
+        <div class="price">
+          <span class="mrp">₹199</span>₹179 
+          <span style="font-size:0.8rem; font-weight:normal; color:#666;">(80g)</span>
+        </div>
+        <p>Amla + Harad + Baheda. Digestive fire, gut health, aur daily body cleansing ke liye classical formulation.</p>
+      </div>
+      <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20to%20order%20Triphala%20Churna%20(₹179)" target="_blank" class="order-btn">💬 Order on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- CEO Section -->
+<section class="section" id="ceo">
+  <h2>Leadership & Vision</h2>
+  <div class="ceo-container">
+    <div class="ceo-card">
+      <img src="doctor_photo_website.jpg" alt="Dr. Piyush Sahu">
+      <h3>Dr. Piyush Sahu</h3>
+      <p>CEO & Founder, Clinical Veda</p>
+      <a href="https://instagram.com/dr_piyush_sahu" target="_blank" class="founder-insta">📷 Founder IG: @dr_piyush_sahu</a>
+    </div>
+  </div>
+</section>
+
+<!-- Herb Explorer -->
+<div class="explorer" id="explorer">
+  <h2 style="text-align: center; margin-bottom: 15px;">Featured Ingredients Explorer</h2>
+  <div class="tab-btns">
+    <button class="active" onclick="showHerb('ashwa', this)">Ashwagandha</button>
+    <button onclick="showHerb('triphala', this)">Triphala</button>
+  </div>
+
+  <div id="ashwa" class="herb-detail">
+    <h3>🌿 Ashwagandha (Withania somnifera)</h3>
+    <p style="margin-top: 6px;"><strong>Ayurvedic View:</strong> Balya aur Rasayana dravya, jo immunity, manasik shanti aur strength ko badhata hai.</p>
+    <p style="margin-top: 4px;"><strong>Modern Science:</strong> Powerful adaptogen jo cortisol (stress hormone) ko kam karke stamina aur sleep quality improve karta hai.</p>
+  </div>
+
+  <div id="triphala" class="herb-detail" style="display: none;">
+    <h3>🍃 Triphala (Amalaki + Haritaki + Bibhitaki)</h3>
+    <p style="margin-top: 6px;"><strong>Ayurvedic View:</strong> Tridosha hara formulation jo Deepani & Ruchya properties ke saath digestion aur bowel habit ko regulate karta hai.</p>
+    <p style="margin-top: 4px;"><strong>Modern Science:</strong> High antioxidants aur prebiotic capabilities jo gut microbiome aur natural detoxification ko support karti hain.</p>
+  </div>
+</div>
+
+<!-- Official Links Hub -->
+<section class="section" id="links">
+  <div class="linktree-box">
+    <h3>🔗 Clinical Veda Official Links</h3>
+    <p>Product details aur health updates ke liye visit karein:</p>
+    
+    <a href="https://instagram.com/clinicalveda_" target="_blank" class="link-item">
+      <span>📷 Clinical Veda Instagram</span>
+      <strong>@clinicalveda_ →</strong>
+    </a>
+    
+    <a href="https://www.youtube.com/@clinicalveda_healthcare" target="_blank" class="link-item">
+      <span>▶️ YouTube Channel</span>
+      <strong>Watch Videos →</strong>
+    </a>
+    
+    <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20product%20details%20and%20consultation" target="_blank" class="link-item">
+      <span>💬 WhatsApp Order & Consult</span>
+      <strong>+91 73544 82365 →</strong>
+    </a>
+  </div>
+</section>
+
+<div class="box" id="about">
+  <h2>About Clinical Veda</h2>
+  <p>Hum Ayurveda aur modern medical science ko combine karke easy language mein health education dete hain. Goal hai ki log scientific aur traditional knowledge dono samajh sakein.</p>
+</div>
+
+<div class="box" id="contact">
+  <h2>Connect & Consult With Us</h2>
+  <p>Health inquiries ya product consultation ke liye humein contact karein:</p>
+  <div class="contact-links">
+    <a href="https://instagram.com/clinicalveda_" target="_blank" class="social-btn ig-btn">📷 Instagram</a>
+    <a href="https://www.youtube.com/@clinicalveda_healthcare" target="_blank" class="social-btn yt-btn">▶️ YouTube</a>
+    <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20product%20details%20and%20consultation" target="_blank" class="social-btn wa-btn">💬 WhatsApp Consult</a>
+  </div>
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20product%20details%20and%20consultation" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
+
+<footer>
+  <p>© 2026 Clinical Veda | @clinicalveda_</p>
+  <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 4px;">
+    Educational content only. Not a substitute for professional medical advice.
+  </p>
+</footer>
+
+<script>
+  function doSearch() {
+    var val = document.getElementById('searchInput').value.toLowerCase();
+    var cards = document.querySelectorAll('.product-card');
+    cards.forEach(function(card) {
+      var text = card.innerText.toLowerCase();
+      if(text.indexOf(val) > -1) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  function showHerb(id, btn) {
+    document.getElementById('ashwa').style.display = 'none';
+    document.getElementById('triphala').style.display = 'none';
+    
+    document.getElementById(id).style.display = 'block';
+
+    var btns = document.querySelectorAll('.tab-btns button');
+    btns.forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
