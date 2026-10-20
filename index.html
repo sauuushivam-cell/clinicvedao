@@ -131,7 +131,7 @@
     /* Product Pricing Cards Section */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
@@ -161,7 +161,7 @@
     }
     .product-img {
       width: 100%;
-      height: 260px;
+      height: 320px;
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 15px;
@@ -169,13 +169,19 @@
     .product-card h3 {
       color: #087f5b;
       font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+    .product-card .sub-title {
+      font-size: 0.85rem;
+      color: #666;
       margin-bottom: 8px;
+      font-weight: 500;
     }
     .product-card .price {
       font-size: 1.5rem;
       font-weight: bold;
       color: #174b3b;
-      margin: 10px 0;
+      margin: 8px 0 12px;
     }
     .product-card .price .mrp {
       text-decoration: line-through;
@@ -183,11 +189,33 @@
       font-size: 1rem;
       margin-right: 6px;
     }
-    .product-card p {
-      color: #555;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
+    
+    /* Benefits List Styling */
+    .benefits-title {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #087f5b;
+      margin: 10px 0 6px;
+      text-align: left;
+      border-bottom: 1px solid #e0f2ec;
+      padding-bottom: 4px;
     }
+    .benefits-list {
+      text-align: left;
+      font-size: 0.85rem;
+      color: #333;
+      margin-bottom: 15px;
+      list-style: none;
+      padding-left: 0;
+    }
+    .benefits-list li {
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    .benefits-list li strong {
+      color: #174b3b;
+    }
+
     .order-btn {
       display: inline-block;
       background: #25d366;
@@ -197,6 +225,7 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
+      margin-top: 10px;
     }
     .order-btn:hover {
       background: #20ba5a;
@@ -418,34 +447,54 @@
   <p style="text-align: center; color: #555; margin-bottom: 20px;">Pure Ayurvedic formulations combined with modern clinical standards.</p>
   
   <div class="product-grid">
-    <!-- Ashwagandha Card with Image -->
+    <!-- Ashwagandha Card using 'ashwagandha churna.jpg' -->
     <div class="product-card">
-      <span class="badge">20% OFF</span>
+      <span class="badge">10% OFF</span>
       <div>
-        <img src="ashwagandha.jpg" alt="Ashwagandha Churna - Clinical Veda" class="product-img">
-        <h3>🌿 Ashwagandha Churna</h3>
+        <img src="ashwagandha%20churna.jpg" alt="Ashwagandha Churna - Clinical Veda" class="product-img">
+        <h3>🌿 अश्वगंधा चूर्ण (Ashwagandha Churna)</h3>
+        <p class="sub-title">100% शुद्ध जड़ का पाउडर • Net Wt. 75g</p>
+        
         <div class="price">
           <span class="mrp">₹199</span>₹179 
-          <span style="font-size:0.8rem; font-weight:normal; color:#666;">(75g)</span>
         </div>
-        <p>100% Shuddh Jad ka powder. Stress relief, immunity boost, stamina aur hormone balance ke liye.</p>
+
+        <div class="benefits-title">मुख्य लाभ / KEY BENEFITS:</div>
+        <ul class="benefits-list">
+          <li>✨ <strong>तनाव कम करे:</strong> तनाव और चिंता को कम करने में सहायक</li>
+          <li>⚡ <strong>ऊर्जा और स्टैमिना बढ़ाये:</strong> थकान दूर कर ऊर्जा व सहनशक्ति बढ़ाये</li>
+          <li>🧠 <strong>दिमाग शांत और फोकस बढ़ाये:</strong> मानसिक स्पष्टता और एकाग्रता में सुधार</li>
+          <li>🌙 <strong>गहरी नींद में सहायक:</strong> प्राकृतिक रूप से नींद की गुणवत्ता में सुधार</li>
+          <li>🛡️ <strong>इम्युनिटी बूस्ट करे:</strong> शरीर की प्रतिरोधक क्षमता को मजबूत बनाए</li>
+          <li>⚖️ <strong>हार्मोन संतुलन:</strong> शरीर के हार्मोन को संतुलित करने में मदद</li>
+          <li>❤️ <strong>हृदय स्वास्थ्य:</strong> हृदय को स्वस्थ रखने में सहायक</li>
+          <li>🦴 <strong>जोड़ों के दर्द में राहत:</strong> जोड़ों में मांसपेशियों के दर्द में मदद</li>
+        </ul>
       </div>
       <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20to%20order%20Ashwagandha%20Churna%20(₹179)" target="_blank" class="order-btn">💬 Order on WhatsApp</a>
     </div>
 
-    <!-- Triphala Card with Image -->
+    <!-- Triphala Card -->
     <div class="product-card">
-      <span class="badge">20% OFF</span>
+      <span class="badge">14% OFF</span>
       <div>
-        <img src="triphala.jpg" alt="Triphala Churna - Clinical Veda" class="product-img">
-        <h3>🍃 Triphala Churna</h3>
+        <img src="triphala%20churna.jpg" alt="Triphala Churna - Clinical Veda" class="product-img">
+        <h3>🍃 त्रिफला चूर्ण (Triphala Churna)</h3>
+        <p class="sub-title">आंवला + हरड़ + बहेड़ा • Net Wt. 80g</p>
+
         <div class="price">
-          <span class="mrp">₹199</span>₹179 
-          <span style="font-size:0.8rem; font-weight:normal; color:#666;">(80g)</span>
+          <span class="mrp">₹149</span>₹129 
         </div>
-        <p>Amla + Harad + Baheda. Digestive fire, gut health, aur daily body cleansing ke liye classical formulation.</p>
+
+        <div class="benefits-title">मुख्य लाभ / KEY BENEFITS:</div>
+        <ul class="benefits-list">
+          <li>🫀 <strong>स्वस्थ पाचन में सहायक:</strong> Deepani & Ruchya - पाचन अग्नि को संतुलित करे</li>
+          <li>🌱 <strong>प्राकृतिक पेट स्वास्थ्य:</strong> Sara Guna - रोज़मर्रा की नियमितता</li>
+          <li>💧 <strong>शरीर की प्राकृतिक शुद्धि:</strong> दैनिक डिटॉक्स रूटीन - प्राकृतिक शरीर शुद्धि</li>
+          <li>👁️ <strong>संपूर्ण स्वास्थ्य:</strong> Chakshushya Rasayana - आँखों और संपूर्ण वेलनेस के लिए</li>
+        </ul>
       </div>
-      <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20to%20order%20Triphala%20Churna%20(₹179)" target="_blank" class="order-btn">💬 Order on WhatsApp</a>
+      <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20to%20order%20Triphala%20Churna%20(₹129)" target="_blank" class="order-btn">💬 Order on WhatsApp</a>
     </div>
   </div>
 </section>
